@@ -1,0 +1,98 @@
+﻿@model CMSProject.Models.Contact
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Contact</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Birthdate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Birthdate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOfComputers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfComputers)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Addresses)
+        </dt>
+
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Address Type</th>
+                    <th>Address Line 1</th>
+                    <th>Address Line 2</th>
+                    <th>City</th>
+                    <th>State (StateCode)</th>
+                    <th>Zip</th>
+                </tr>
+                @foreach (var oneaddress in Model.Addresses)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelitem => oneaddress.AddressType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => oneaddress.AddressLine1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => oneaddress.AddressLine2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => oneaddress.City)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => oneaddress.StateCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => oneaddress.Zip)
+                    </td>
+                </tr>
+                }
+            </table>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
